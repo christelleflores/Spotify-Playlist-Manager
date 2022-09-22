@@ -1,19 +1,37 @@
-# spotify-app
+# Spotify App Example
 
-## Project setup
-```
-npm install
-```
+## What is this project?
+This application was made for a student of mine that is currently taking my open-source development course.
+The student wanted to practice their web dev and design UI/UX skills through modifying the code of an existing site, and was specifically
+interested in finding a project that utilizes the Spotify API so that they could rearrange and restyle things to their liking.
+However, every relevant project the student could find out there had red flag after red flag that made them not a great starting point, so I made this project for them to use as a base.
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+This project is intentionally very simple and minimally styled. The main purpose of this project was to setup Spotify oAuth so my aforementioned student (and future students)
+can expand on this project in any direction they please.
 
-### Compiles and minifies for production
-```
-npm run build
-```
+## How was this project made?
+I used Vue and the [Spotify API](https://developer.spotify.com/documentation/web-api/).
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## How to run this project?
+I recommend opening this project up in Visual Studio Code.
+
+Rename the `.env.sample` file to `.env`. 
+
+There are three variables defined in the `.env` file that the app requires. The `REDIRECT_URI` variable is already provided for you.
+The `CLIENT_ID` and `CLIENT_SECRET` variables need to come from an "application" that is registered to your Spotify account.
+To get these values, go to Spotify's developer portal [here](https://developer.spotify.com/dashboard), login with your Spotify account credentials,
+and then hit the `Create an App` button. The fields for "App name" and "App description" can be anything.
+After the app has been created, click it and find the app's Client ID and Client Secret.
+Copy those values and paste them into the `.env` file in the appropriate places.
+
+Next, open up a terminal (such as the one that's built into Visual Studio Code), navigate to the root project folder, and run `npm run serve`.
+Once the web app has finished building successfully, open up a web browser (such as Google Chrome) and go to the address `localhost:8080`.
+If all went well, you will see this site's home page.
+
+## How to use the website?
+The home page of this site has a button that will allow you to login to Spotify.
+From there, the app can now use your account's context to perform API requests.
+The Playlists page shows an example of this by pulling all of the logged in user's playlist data.
+
+## Spotify API Resources
+The documentation for Spotify's API resources can be found [here](https://developer.spotify.com/documentation/web-api/reference/#/).
