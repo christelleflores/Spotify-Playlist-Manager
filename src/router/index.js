@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import Home from '../pages/Home.vue'
 import Callback from '../pages/Callback.vue'
 import Playlists from '../pages/Playlists.vue'
+import Tracks from '../pages/Tracks.vue'
 
 Vue.use(VueRouter)
 
@@ -21,6 +22,12 @@ const routes = [
     path: '/playlists',
     name: 'Playlists',
     component: Playlists
+  },
+  {
+    path: '/tracks',
+    name: 'Tracks',
+    component: Tracks,
+    props: true
   }
 ]
 
