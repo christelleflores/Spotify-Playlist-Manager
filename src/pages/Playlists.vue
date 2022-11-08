@@ -1,8 +1,118 @@
 <template>
+<section>
+  <section class="swiper my Swiper">
+    <div class="swiper-wrapper">
+      <div v-for="playlist in playlists" :key="playlist.name" class="playlist swiper-slide">
+        <div class="playlist-image">
+          <img :src="playlist.images[0].url" alt="cover">
+        </div>
+        <div class="playlist-content">
+          <span class="name">
+            <p>{{ playlist.name }}</p>
+          </span>
+          <div class="button">
+            <button @click.prevent="buttonClicked(playlist)">Click Me!</button> 
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+</section>
 
+<!--
+<body>
+  <div class="container">
+  <input type="radio" name="dot" id="one">
+  <input type="radio" name="dot" id="two">
+  <input type="radio" name="dot" id="three">
+  <div class="main-card">
+    <div class="section">
+     <div v-for="playlist in playlists" :key="playlist.name" class="playlist">
+        <div class="content">
+          <div class="img">
+            <img :src="playlist.images[0].url" alt="cover">
+          </div>
+          <div class="details">
+            <div class="name">{{ playlist.name }}</div>
+            <button @click.prevent="buttonClicked(playlist)">Click Me!</button> 
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="button">
+      <label for="one" class=" active one"></label>
+      <label for="two" class="two"></label>
+      <label for="three" class="three"></label>
+    </div>
+  </div>
+  </div>
+</body>
+-->
+
+<!--
+<head>
+   <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
+<body>
+  <section>
+    
+    <div class="swiper">
+      <div class="swiper-wrapper">
+        <div v-for="playlist in playlists" :key="playlist.name" class="playlist swiper-slide">
+          <div class="playlist-content">
+            <div class="image">
+              <img :src="playlist.images[0].url" alt="cover">
+            </div>
+            <div class="playlist-name">
+              <span class="name"><p>{{ playlist.name }}</p></span>
+            </div>
+            <div class="button">
+              <button @click.prevent="buttonClicked(playlist)">Click Me!</button> 
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-pagination"></div>
+  </section>
+</body>
+</head>
+-->
+<!--
+<body>
+  <div class="slide-container swiper">
+    <div class="slide-content">
+      <div class="playlist-wrapper swiper-wrapper">
+        <div v-for="playlist in playlists" :key="playlist.name" class="playlist swiper-slide">
+          <div class="image-content">
+            <span class="overlay"></span>
+            <div class="playlist-image">
+              <img :src="playlist.images[0].url" alt="cover">
+            </div>
+            <div class="playlist-content">
+              <div class="name"><p>{{ playlist.name }}</p></div>
+              <button @click.prevent="buttonClicked(playlist)">Click Me!</button> 
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="swiper-button-next swiper-navBtn"></div>
+    <div class="swiper-button-prev swiper-navBtn"></div>
+    <div class="swiper-pagination"></div>
+  </div>
+  
+</body>
+
+-->
+
+<!--
   <div class="wrapper">
       <div class="outer">
-        <!--<section class="playlists">-->
+        section class="playlists
           <div v-for="(playlist, index) in playlists" :key="playlist.name" class="playlist" :style="`--delay:${index - 1};`">
             <div class="content">
                 <div class="img"><img :src="playlist.images[0].url" alt="cover"></div>
@@ -13,9 +123,10 @@
             </div>
             <button @click.prevent="buttonClicked(playlist)">Click Me!</button> 
           </div>
-       <!-- </section> -->
+        </section> 
       </div>  
-  </div>   
+  </div> -->
+
 <!--
   <div class="playlist-data-container">
     <header> 
@@ -75,6 +186,170 @@ export default {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  
+}
+body{
+  display: flex;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  
+}
+.swiper{
+  width: 100%;
+}
+.swiper-wrapper{
+  width: 100%;
+  height: 35em;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+} 
+.playlist{
+  width: 20em;
+  height: 80%;
+  background-color: rgb(179, 179, 179);
+  border-radius: 2em;
+  box-shadow: 0 0 2em black;
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.playlist-image{
+  width: 15em;
+  height: 15em;
+  border: 5px solid green;
+  margin-top: 30%;
+}
+.playlist-image img{
+  width: 100%;
+  height: 100%;
+  padding: 0px;
+  object-fit: cover;
+}
+.playlist-content{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.playlist-content .name{
+  font-size: 1.5rem;
+  font-weight: 500;
+  position: relative;
+  top: 0.2em;
+}
+.playlist button{
+  background-color: green;
+  color: #fff;
+  font-size: 1rem;
+  border: none;
+  font-weight: 600;
+  padding: .5em;
+  border-radius: .5em;
+  margin-top: .5em;
+  cursor: pointer;
+}
+
+/*
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins',sans-serif;
+}
+body{
+  display: flex;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  background: #f2f2f2;
+  position: relative;
+}
+body::before{
+  content: '';
+  position: absolute;
+  width: 100%;
+  background: green;
+  clip-path: inset(47% 0 0 0);
+  z-index: -1;
+  height: 50%;
+}
+::selection{
+  background:green;
+  color: rgb(131, 243, 131);
+}
+.container{
+  max-width: 950px;
+  width: 100%;
+  overflow: hidden;
+  padding: 80px 0;
+}
+.container .main-card{
+  display: flex;
+  justify-content: space-evenly;
+  width: 200%;
+  transition: 1s;
+}
+#two:checked ~ .main-card{
+  margin-left: -100%;
+}
+#three:checked ~ .main-card{
+  margin-left: -100%;
+}
+.container .main-card .section{
+  width: calc(100% / 1 - 50px);
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 20px;
+  justify-content: space-between;
+}
+.main-card .section .playlist{
+  width: calc(100% / 5 - 30px);
+  background: #fff;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25);
+  transition: all 0.4s ease;
+}
+.main-card .section .playlist:hover{
+  transform: translateY(-15px);
+}
+.section .playlist .content{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.section .playlist .content .img{
+  height: 130px;
+  width: 130px;
+  border-radius: 50%;
+  padding: 3px;
+  background: #FF676D;
+  margin-bottom: 14px;
+}
+.playlist .content .img img{
+  height: 100%;
+  width: 100%;
+  border: 3px solid #ffff;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.playlist .content .name{
+  font-size: 20px;
+  font-weight: 500;
+}
+*/
+
+/*
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
   font-family: Arial, Helvetica, sans-serif;
 }
 .wrapper{
@@ -92,7 +367,7 @@ export default {
 }
 .wrapper .playlist{
   background: #fff;
-  width: 800px;
+  width: 600px;
   display: flex;
   align-items: center;
   padding: 100px;
@@ -172,6 +447,7 @@ export default {
 .playlist button:hover{
   transform: scale(0.94);
 }
+*/
 /*
 header {
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
