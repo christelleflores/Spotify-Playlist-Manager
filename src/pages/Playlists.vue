@@ -1,39 +1,22 @@
 <template>
-
-  <div class="wrapper">
-      <div class="outer">
-        <!--<section class="playlists">-->
-          <div v-for="(playlist, index) in playlists" :key="playlist.name" class="playlist" :style="`--delay:${index - 1};`">
-            <div class="content">
-                <div class="img"><img :src="playlist.images[0].url" alt="cover"></div>
-                <div class="details">
-                    <span class="name"><p>{{ playlist.name }}</p></span>
-                    <p>{{ playlist.name }}</p>
-                </div>  
-            </div>
-            <button @click.prevent="buttonClicked(playlist)">Click Me!</button> 
-          </div>
-       <!-- </section> -->
-      </div>  
-  </div>   
-<!--
-  <div class="playlist-data-container">
-    <header> 
-      <h1>Spotify Playlist Manager</h1>
-        <p>Select which playlist you want to manage</p>
-    </header> 
-    <p class="playlist-data-label">Playlists:</p>
-    <section class="playlists">
-        <div v-for="playlist in playlists" :key="playlist.name" class="playlist1">
-          <img :src="playlist.images[0].url" alt="cover" style="width:300px;height:300px;">
-          <p>{{ playlist.name }}</p>
-          <button @click.prevent="buttonClicked(playlist)">Click Me!</button>
+<body>
+<section class="heading">
+  <h1>Spotify Playlist Manager</h1>
+</section>
+<section class="wrapper">
+  <div class="card-grid-space">
+    <div v-for="playlist in playlists" :key="playlist.name" class="playlist">
+        <div class="playlist-image">
+          <img :src="playlist.images[0].url" alt="cover">
         </div>
-        
-    </section>
-    
+        <h1>{{ playlist.name }}</h1>
+        <div class="buttons">
+            <button @click.prevent="buttonClicked(playlist)">Select</button> 
+        </div>
+      </div>
   </div>
--->
+</section>
+</body>
 </template>
 
 <script>
@@ -71,142 +54,120 @@ export default {
 </script>
 
 <style scoped>
-*{
-  margin: 0;
-  padding: 0;
+* {
   box-sizing: border-box;
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: rgb(133, 158, 109);
+  transition: all 0.3s ease-out;
 }
-.wrapper{
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  align-items: center;
+
+.body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: 'Open Sans';
+  background-color: rgb(133, 158, 109);
+}
+
+.wrapper {
+  display: grid;
   justify-content: center;
-  background: linear-gradient(to bottom, #bea2e7 0%, #86b7e7 100%);
-}
-.wrapper .outer{
-  display: flex;
-  align-content: center;
-  justify-content: center;
-}
-.wrapper .playlist{
-  background: #fff;
-  width: 800px;
-  display: flex;
   align-items: center;
-  padding: 100px;
-  opacity: 0;
-  pointer-events: none;
-  position: absolute;
-  justify-content: space-between;
-  border-radius: 200px 40px 40px 200px;
-  box-shadow: 0px 10px 15px rgba(0,0,0,0.1);
-  animation: animate 10s ease-in infinite;
-  animation-delay: calc(3s * var(--delay));
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 4rem;
+  padding: 4rem;
+  margin: 0 auto;
+  width: max-content;
 }
-.outer:hover .playlist{
-  animation-play-state: paused;
-}
-.wrapper .playlist:last-child{
-  animation-delay: calc(-3s * var(--delay));
-}
-@keyframes animate {
-  0%{
-    opacity: 0;
-    transform: translateY(100%) scale(0.5);
-  }
-  5%, 20%{
-    opacity: 0.4;
-    transform: translateY(100%) scale(0.7);
-  }
-  25%, 40%{
-    opacity: 1;
-    pointer-events: auto;
-    transform: translateY(0%) scale(1);
-  }
-  45%, 60%{
-    opacity: 0.4;
-    transform: translateY(-100%) scale(0.7);
-  }
-  65%, 100%{
-    opacity: 0;
-    transform: translateY(-100%) scale(0.5);
-  }
-}
-.playlist .content{
-  display: flex;
-  align-items: center;
-}
-.wrapper .playlist .img{
-  height: 300px;
-  width: 300px;
-  position: absolute;
-  left: -15px;
-  background: #fff;
-  border-radius: 70%;
-  padding: 5px;
-  box-shadow: 0px 0px 5px rgba(0,0,0,0.2);
-}
-.playlist .img img{
-  height: 100%;
-  width: 100%;
-  border-radius: 70%;
-  object-fit: cover;
-}
-.playlist .details{
-  margin-left: 80px;
-}
-.details span{
-  font-weight: 600;
-  font-size: 25px;
-}
-.playlist button{
-  text-decoration: none;
-  padding: 7px 18px;
-  border-radius: 25px;
-  color: #fff;
-  background: linear-gradient(to bottom, #bea2e7 0%, #86b7e7 100%);
-  transition: all 0.3s ease;
-}
-.playlist button:hover{
-  transform: scale(0.94);
-}
-/*
-header {
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  color: rgb(44, 182, 3);
-  
-}
-.playlists {
+
+.card-grid-space{
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
 }
 
-.playlist1 {
-  border: 4px solid rgb(44, 182, 3);
-  text-align: center;
-  flex: 0 1 30%;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  transition: 0.5s;
-  padding: 1rem;
-  margin-bottom: 1rem;
+.playlist {
+  height: 15em;
+  width: 15em;
+  font-size: 1.5em;
+  border-radius: 1em;
+  margin: 2em;
+  display: flex;
+  align-items: flex-end;
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 0 5em -1em black;
+  transition: all, var(--transition-time);
+  position: relative;
+  overflow: hidden;
+  border: 10px solid #ccc;
   
-  width: fit-content;
-}
-img {
-  display: inline-block;
-  border: 4px solid rgb(44, 182, 3);
-}
-.playlist1:hover {
-  background-color: rgb(184, 212, 134);
-  box-shadow: 0 10px 16px 0 rgba(0,0,0,0.2);
 }
 
-.playlist-data-label {
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  font-size: 25px;
+.playlist .playlist-image{
+  width: 100%;
+  height: 100%;
+  opacity: 60%;
+  display: flex;
 }
-*/
+
+.playlist:hover h1{
+  transition: all 0.3s ease-out;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.playlist h1 {
+  margin: 35px 0;
+  font-size: 1.5em;
+  line-height: 1.2em;
+  position: absolute;
+  color: darkgreen;
+}
+
+.playlist .buttons {
+   justify-content: center;
+   position: absolute;
+   display: flex;
+}
+.playlist .buttons button{
+  text-decoration: none;
+  padding: 7px 20px;
+  border-radius: 20px;
+  color: #fff;
+  background-color: rgb(133, 158, 109);
+  transition: all 0.3s ease;
+}
+.playlist button:hover{
+  transform: scale(0.94);
+}
+
+.playlist:before {
+  content: "";
+  position: absolute;
+  bottom: -16px;
+  left: -16px;
+  background:white;
+  height: 50px;
+  width: 50px;
+  border-radius: 32px;
+  transform: scale(0.5);
+  transform-origin: 50% 50%;
+  transition: transform 0.25s ease-out;
+  /*
+  background: #ddd;
+  width: 250%;
+  height: 250%;
+  */
+}
+.playlist:hover:before {
+  transform: scale(21);
+}
+
+.heading {
+  font-size: 3em;
+  display: flex;
+  padding: 1em 3em;
+  height: 3em;
+  color: wheat;
+  font-weight: normal;
+}
+
 </style>
