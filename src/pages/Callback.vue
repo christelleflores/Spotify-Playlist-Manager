@@ -35,3 +35,14 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+* {
+  background-color: black;
+  font-family: "Poppins", sans-serif;
+  align-content: center;
+}
+h1{
+  font-size: 50px;
+}
+</style>
