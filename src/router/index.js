@@ -24,10 +24,9 @@ const routes = [
     component: Playlists
   },
   {
-    path: '/tracks',
+    path: '/playlists/:playlistId/tracks',
     name: 'Tracks',
-    component: Tracks,
-    props: true
+    component: Tracks
   }
 ]
 
