@@ -3,7 +3,7 @@
   <section class="heading">
     <h1>Spotify Playlist Manager</h1>
   </section>
-  <p>Select a playlist you wish to edit!!</p>
+  <p class="subtitle">You have GREAT taste. Select a playlist you wish to edit!!</p>
   <section class="wrapper">
     <div class="card-grid-space">
        <div v-for="playlist in playlists" :key="playlist.name" class="playlist">
@@ -77,6 +77,13 @@ body{
   font-weight: normal;
   color: transparent;
   -webkit-text-stroke: 2px rgb(133, 158, 109);
+
+}
+.subtitle{
+  color: rgb(133, 158, 109);
+  font-size: 20px;
+  margin-left: 130px;
+  margin-bottom: -10px;
 
 }
 

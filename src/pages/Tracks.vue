@@ -1,6 +1,6 @@
 <template>
   <div class="track-data-container">
-    <button @click.prevent="buttonClicked()">Go Back!</button>
+    
     <header> 
       <h1>Spotify Playlist Manager</h1>
     </header> 
@@ -12,7 +12,8 @@
         <button class="search-button" @click.prevent="search">Search</button>
         <ul id="list">
            <li v-for="album in albumName" :key="album.name">
-             <a href="#">{{ album.name }} <button @click.prevent="addTrack()">add</button></a>
+             <a href="#">{{ album.name }} </a>
+             <button class="list-button" @click.prevent="addTrack()">add</button>
         </li>  
         </ul>
     </section>
@@ -27,6 +28,7 @@
          
         </div>
     </section>
+    <button @click.prevent="buttonClicked()">Go Back!</button>
   </div>
 
 </template>
@@ -118,7 +120,7 @@ header {
 h3{
   color: white;
   font-size: 30px;
-  margin-left: 20px;
+  margin-left: 70px;
   color: transparent;
   -webkit-text-stroke: 1.2px rgb(133, 158, 109);
 }
@@ -127,14 +129,12 @@ h3{
   flex-wrap: wrap;
   justify-content: space-between;
   width: 50%;
-
-  border: 1px solid red;
 }
 
 .search{
   float: right;
   width: 50%;
-  border: 1px solid red;
+
 }
 
 .track1 {
@@ -157,7 +157,7 @@ h3{
   font-size: 17px;
   position: absolute;
   margin-top: -9px;
-  color: white;
+  color: #444;
 }
 .track-content button{
   margin-left: 400px;
@@ -183,7 +183,7 @@ h3{
 
  .track1:hover {
     transition: all 0.2s ease-out;
-    box-shadow: 0px 4px 8px rgba(38, 38, 38, 0.2);
+    box-shadow: 0px 6px 10px rgb(133, 158, 109);
     top: -4px;
     border: 1px solid #cccccc;
     background-color: white;
@@ -211,30 +211,72 @@ h3{
 .search-container{
   padding-left: 800px;
 }
-#searchBar {
-  background-position: 10px 12px;
-  background-repeat: no-repeat; 
-  width: 100%;
-  font-size: 16px;
-  padding: 12px 20px 12px 40px; 
-  border: 1px solid #ddd; 
+.form-control {
+  background: rgb(54, 65, 54);
+  width: 50%;
+  font-size: 17px;
+  padding: 12px; 
+  border: 1px solid rgb(133, 158, 109); 
   margin-bottom: 12px;
+  margin-left: 65px;
+}
+.search-button{
+  width: 80px;
+  height: 40px;
+  border-radius: 20px;
+  margin-left: 20px;
+  outline: none;
+	border: none;
+  background-color: rgb(133, 158, 109);
 }
 #list{
   list-style-type: none;
   padding: 0;
-  margin: 0;
+  margin-left: 30px;
+  width: 500px;
 }
 #list li a {
   border: 1px solid #ddd;
+  height: 60px;
   margin-top: -1px;
-  background-color: #f6f6f6;
+  background-color: rgb(133, 158, 109);
   padding: 12px;
   text-decoration: none;
   font-size: 18px;
-  color: black;
-  display: block
+  color: white;
+  display: block;
+}
+.list-button{
+  margin-left: 400px;
+
+  width: 65px;
+  height: 25px;
+	outline: none;
+	border: none;
+	border-radius: 3px;
+	background: rgb(54, 65, 54);
+	color: white;
+
+	cursor: pointer;
+	transition: 0.4s ease;
+  position: absolute;
+  justify-content: center;
+  margin-top: -45px;
+}
+.list-button:hover{
+  background: rgb(133, 158, 109);
+  color: rgb(54, 65, 54);
+  background-color: white;
 }
 
-
+button{
+  margin-left: 1200px;
+  margin-bottom: 20px;
+  width: 150px;
+  height: 50px;
+  border-radius: 20px;
+  outline: none;
+	border: none;
+  background-color: rgb(133, 158, 109);
+}
 </style>

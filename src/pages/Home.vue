@@ -3,7 +3,7 @@
     <div class="header">
       <h3>Spotify Playlist Manager</h3>
       <h3>Spotify Playlist Manager</h3>
-        <p>Manage your playlists!!</p>
+        
       <button @click="loginToSpotify">Login to Spotify</button>
     </div>
   </section>
@@ -84,7 +84,7 @@ section{
   padding: 15px 32px;
   text-align: center;
   margin-left: 30rem;
-  margin-top: 7rem;
+  margin-top: -2rem;
   display: inline-block;
   font-size: 16px;
   border-radius: 12px;
