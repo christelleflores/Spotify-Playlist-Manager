@@ -4,7 +4,7 @@
 This application was built upon this existing project: https://github.com/a-r-t/Spotify-App-Example\
 This project was created out of interest in utilizing the Spotify API and practicing my web development and design skills. The end-product goal of this project was to be a website in which the user may login to their Spotify account and navigate through their personal playlists as well as delete and add searched tracks.
 
-##What are the core features?
+## What are the core features?
 The main features of functionality for this project was utilizing the Spotify API to login to a Spotify account and see every playlist with every track in each one. Creativity and design of the website were mainly  prioritized in the development of this project.
 
 ## How was this project made?
