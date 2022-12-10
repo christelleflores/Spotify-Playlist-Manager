@@ -1,13 +1,11 @@
 # Spotify App Example
 
 ## What is this project?
-This application was made for a student of mine that is currently taking my open-source development course.
-The student wanted to practice their web dev and design UI/UX skills through modifying the code of an existing site, and was specifically
-interested in finding a project that utilizes the Spotify API so that they could rearrange and restyle things to their liking.
-However, every relevant project the student could find out there had red flag after red flag that made them not a great starting point, so I made this project for them to use as a base.
+This application was built upon this existing project: https://github.com/a-r-t/Spotify-App-Example\
+This project was created out of interest in utilizing the Spotify API and practicing my web development and design skills. The end-product goal of this project was to be a website in which the user may login to their Spotify account and navigate through their personal playlists as well as delete and add searched tracks.
 
-This project is intentionally very simple and minimally styled. The main purpose of this project was to setup Spotify oAuth so my aforementioned student (and future students)
-can expand on this project in any direction they please.
+##What are the core features?
+The main features of functionality for this project was utilizing the Spotify API to login to a Spotify account and see every playlist with every track in each one. Creativity and design of the website were mainly  prioritized in the development of this project.
 
 ## How was this project made?
 I used Vue and the [Spotify API](https://developer.spotify.com/documentation/web-api/).
@@ -32,6 +30,9 @@ If all went well, you will see this site's home page.
 The home page of this site has a button that will allow you to login to Spotify.
 From there, the app can now use your account's context to perform API requests.
 The Playlists page shows an example of this by pulling all of the logged in user's playlist data.
+There will be a button on each playlist card as you hover over them, which will take you to the Tracks page.
+On this page, all the tracks from this specific playlist will be displayed as well as a search bar on the right side.
+When you search for an artist and click on the search button, all albums of that artist will display in a list below.
 
 ## Spotify API Resources
 The documentation for Spotify's API resources can be found [here](https://developer.spotify.com/documentation/web-api/reference/#/).
