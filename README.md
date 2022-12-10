@@ -1,4 +1,4 @@
-# Spotify App Example
+# Spotify Playlist Manager
 
 ## What is this project?
 This application was built upon this existing project: https://github.com/a-r-t/Spotify-App-Example\
