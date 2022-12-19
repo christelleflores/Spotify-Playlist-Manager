@@ -17,7 +17,7 @@ export default {
   methods: {
     loginToSpotify() {
       const params = {
-        response_type: 'code',
+        response_type: 'token',
         client_id: process.env.VUE_APP_CLIENT_ID,
         scope: 'playlist-read-private playlist-read-collaborative playlist-modify-private playlist-modify-public',
         redirect_uri: process.env.VUE_APP_REDIRECT_URI,

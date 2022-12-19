@@ -1,36 +1,29 @@
 <template>
   <div>
     <h1>Loading...</h1>
+    <p v-if="errorMessage">{{ errorMessage }}</p>
   </div>
 </template>
 
 <script>
-import axios from 'axios'
-const qs = require('qs');
-
 export default {
   name: 'Callback',
   created() {
-    if (this.$route.query.code) {
-      const spotifyCode = this.$route.query.code
-      const basicAuth = `Basic ${(Buffer.from(`${process.env.VUE_APP_CLIENT_ID}:${process.env.VUE_APP_CLIENT_SECRET}`).toString('base64'))}`
-      return axios.post('https://accounts.spotify.com/api/token', 
-        new URLSearchParams({ 
-          code: spotifyCode, 
-          grant_type: 'authorization_code', 
-          redirect_uri: process.env.VUE_APP_REDIRECT_URI 
-        }).toString(), 
-        { 
-          headers: { 
-            Authorization: basicAuth, 
-            'Content-Type': 'application/x-www-form-urlencoded'
-          }
-        })
-        .then(response => {
-          sessionStorage.setItem('SPOTIFY_ACCESS_TOKEN', response.data.access_token);
-          return this.$router.push('Playlists')
-        })
-
+    const hashParams = {}
+    this.$route.hash.substring(1).split('&').forEach(item => {
+      hashParams[item.split('=')[0]] = decodeURIComponent(item.split('=')[1]);
+    })
+    if (hashParams.access_token) {
+      sessionStorage.setItem('SPOTIFY_ACCESS_TOKEN', hashParams.access_token)
+      return this.$router.push('Playlists')
+    }
+    else {
+      this.errorMessage = 'Unable to authenticate Spotify user.'
+    }
+  },
+  data() {
+    return {
+      errorMessage: ''
     }
   }
 }
@@ -42,7 +35,12 @@ export default {
   font-family: "Poppins", sans-serif;
   align-content: center;
 }
+
 h1{
   font-size: 50px;
+}
+
+.errorMessage {
+  color: red;
 }
 </style>
